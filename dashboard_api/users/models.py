@@ -62,3 +62,15 @@ class UserProfile(AbstractBaseUser, PermissionsMixin):
         """Retorna cadena represtando al usuario"""
         return self.email
 
+
+class UsersTests(models.Model):
+    """ Model para almacenar las respuestas de los usuarios """
+
+    user_id = models.IntegerField()
+    question_1 = models.BooleanField(default=None)
+    question_2 = models.BooleanField(default=None)
+    question_3 = models.BooleanField(default=None)
+    question_4 = models.BooleanField(default=None)
+    question_5 = models.BooleanField(default=None)
+
+    REQUIRED_FIELDS = ['user_id']

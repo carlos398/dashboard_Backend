@@ -1,6 +1,6 @@
 from rest_framework import serializers
 from rest_framework.authtoken.models import Token
-from .models import UserProfile
+from .models import UserProfile, UsersTests
 
 class UsersSerializer(serializers.ModelSerializer):
     class Meta:
@@ -12,3 +12,9 @@ class UsersSerializer(serializers.ModelSerializer):
         user = UserProfile.objects.create_user(**validated_data)
         Token.objects.create(user=user)
         return user
+
+
+class UsersTestSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = UsersTests
+        fields = '__all__'
